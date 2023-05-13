@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -20,24 +21,8 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                const loggedUser = {
-                    email: user.email,
-                }
-                console.log(loggedUser);
-                fetch('http://localhost:5000/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(loggedUser)
-                })
-                .then(res => res.json())
-                .then(data => {
-                    console.log('jwt response', data)
-                    // warning: localStorage is not best (second best place) to store access token
-                    localStorage.setItem('car-doctor-access-token', data.token)
-                    navigate(from, { replace: true });
-                })
+                navigate(from, { replace: true });
+                console.log(user); 
             })
             .catch(error => console.log(error));
     }
@@ -72,6 +57,7 @@ const Login = () => {
                             </div>
                         </form>
                         <p className='my-4 text-center'>New to Car Doctors <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>

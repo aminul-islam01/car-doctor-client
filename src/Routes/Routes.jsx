@@ -6,12 +6,13 @@ import SignUp from "../pages/SignUp/SignUp";
 import BookService from "../pages/BookService/BookService";
 import Bookings from "../pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
-      errorElement: "not found 404",
+      errorElement: <Error></Error>,
       children: [
         {
             path: '/',

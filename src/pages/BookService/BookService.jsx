@@ -5,8 +5,10 @@ import Swal from 'sweetalert2'
 import { useLocation } from 'react-router-dom';
 import useScrollTop from '../../hooks/useScrollTop';
 import image from '../../assets/images/checkout/checkout.png'
+import useTitle from '../../hooks/useTitle';
 
 const BookService = () => {
+    useTitle('Book-service');
     const { pathname } = useLocation();
     useScrollTop(pathname);
 

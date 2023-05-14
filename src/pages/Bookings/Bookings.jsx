@@ -3,8 +3,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const Bookings = () => {
+    useTitle('Booking');
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
     const navigate = useNavigate();

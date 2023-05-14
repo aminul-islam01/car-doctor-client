@@ -10,7 +10,7 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])
-
+    
     return (
         <div className="my-8">
             <div className="text-center">
